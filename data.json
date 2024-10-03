@@ -1,0 +1,15 @@
+{
+    "image": "images/garden.png",
+    "zones": [
+        {
+            "shape": "rect",
+            "coords": "34,44,270,350",
+            "tooltip": "Detta är zon 1. <a href='https://exempel.com'>Länk 1</a>"
+        },
+        {
+            "shape": "circle",
+            "coords": "337,300,44",
+            "tooltip": "Detta är zon 2. <a href='https://exempel.com'>Länk 2</a>"
+        }
+    ]
+}
