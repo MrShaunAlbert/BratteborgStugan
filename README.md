@@ -1,0 +1,1 @@
+Trying to do an adverture game with simple images on a webpage. When clicking on the image the webpage will check if there is an object to interact with. I'm inspired by the swedish text based game "Stugan" and "Escape rooms".
