@@ -31,22 +31,23 @@
 
 	// Check if the ID exists in the JSON data
 	if (isset($data[$id])) {
-		// If click coordinates are provided, check the click zone
-		if ($click_x !== null && $click_y !== null) {
-			$clickZone = $data[$id]['clickZone'];
-			$topLeft = $clickZone['topLeft'];
-			$bottomRight = $clickZone['bottomRight'];
-
-			if ($click_x >= $topLeft['x'] && $click_y >= $topLeft['y'] && $click_x <= $bottomRight['x'] && $click_y <= $bottomRight['y']) {
-				// Redirect to the new ID if the click is within the zone
-				$new_id = $clickZone['linkId'];
-				echo "<p>You found it <a href='index.php?version=$version&id=$new_id'>Click here to move on.</a></p>\n";
-			}
-		}
-
 		// Display the image
 		$image = is_array($data[$id]) ? $data[$id]['image'] : $data[$id];
 		echo "<img src='$image' alt='Image for ID $id' id='mainImage' onclick='handleClick(event)'>";
+
+		// If click coordinates are provided, check the click zone
+		if ($click_x !== null && $click_y !== null) {
+			foreach($data[$id]['clickZones'] as $zone) {
+				$topLeft = $zone['topLeft'];
+				$bottomRight = $zone['bottomRight'];
+
+				if ($click_x >= $topLeft['x'] && $click_y >= $topLeft['y'] && $click_x <= $bottomRight['x'] && $click_y <= $bottomRight['y']) {
+					$description = $zone['description'];
+					$new_id = $zone['linkId'];
+					echo "<p>$description <a href='index.php?version=$version&id=$new_id'>Click here to move on.</a></p>\n";
+				}
+			}
+		}
 	} else {
 		echo "Image not found for ID $id.";
 	}
