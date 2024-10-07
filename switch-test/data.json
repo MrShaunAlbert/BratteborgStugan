@@ -1,0 +1,18 @@
+{
+    "7536hsjs2i": {
+		"image" : "images/bedroom.png",
+        "clickZone": {
+            "topLeft": {"x": 279, "y": 457},
+            "bottomRight": {"x": 301, "y": 475},
+            "linkId": "defaultId"
+        }
+	},
+    "defaultId": {
+        "image": "images/garden.png",
+        "clickZone": {
+            "topLeft": {"x": 300, "y": 180},
+            "bottomRight": {"x": 350, "y": 250},
+            "linkId": "7536hsjs2i"
+        }
+    }
+}
